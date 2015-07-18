@@ -14,7 +14,8 @@ complete <- function(directory, id = 1:332) {
     pollutant_data<-rbind(pollutant_data,read.csv(fl[k]))  
   }
   
-  sanitized<-subset(pollutant_data,sulfate != "NA", nitrate != "NA")
+  sanitized<-subset(pollutant_data,sulfate != "NA")
+  sanitized<-subset(sanitized, nitrate != "NA")
   
   response<-data.frame("id"=integer(),"nobs"=integer(),stringsAsFactors=FALSE)
   
